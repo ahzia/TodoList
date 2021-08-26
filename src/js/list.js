@@ -32,6 +32,11 @@ remove = (index) => {
   this.updateLocalStorage(true, false);
 }
 
+update = (index, value) => {
+  this.todos[index].description = value;
+  this.updateLocalStorage(true, false, false);
+}
+
 sortList = () => {
   this.todos.sort((todoA, todoB) => {
     if (todoA.index < todoB.index) {
@@ -62,7 +67,7 @@ displayList = () => {
       todoCard += `<input type="checkbox" name="todoCheck" class="todoCheck" id="${checkboxId}">`;
     }
     todoCard += `
-      <input class="description" id="${inputId}" value="${description}">
+      <input type="text" class="description" id="${inputId}" value="${description}">
       </div>
       <div id="${moveDiv}" class="draggableAria">
         <i class="fas fa-ellipsis-v"></i>

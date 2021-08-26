@@ -47,6 +47,10 @@ const eventListener = () => {
       moveDiv.classList.add('hidetemp');
       deleteDiv.classList.add('visible');
       input.classList.add('inFocus');
+      input.addEventListener('change', (e) => {
+        const { value } = e.target;
+        newList.update(index, value);
+      });
     }
   };
   const draggables = document.querySelectorAll('.draggable');

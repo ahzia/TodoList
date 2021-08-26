@@ -89,7 +89,7 @@ ul {
   display: flex;
   width: 20px;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   color: tomato;
 }
 
@@ -112,7 +112,7 @@ ul {
   background-color: lightblue;
 }
 
-.inFocus{
+.inFocus {
   background-color: lightblue;
 }
 
@@ -120,7 +120,7 @@ ul {
   visibility: hidden;
 }
 
-.hidetemp{
+.hidetemp {
   visibility: hidden;
 }
 
