@@ -1,18 +1,18 @@
 import _ from 'lodash';
-import '../css/style.css';
+import '../css/style.css'
 const todos=[{
-  index:0,
-  description: "New todo",
+  index:4,
+  description: "todo 4",
   completed: true
 },
 {
   index:1,
-  description: "New todo",
+  description: " todo 1",
   completed: false
 },
 {
-  index:2,
-  description: " todo",
+  index:3,
+  description: " todo 3",
   completed: true
 },
 ]
@@ -23,16 +23,14 @@ function displayBooks() {
   todos.forEach((todo) => {
     const {description,completed,index} = todo;
     const liId = `li${index}`;
-    let todoCard = `<li id=${liId} class= "booklist" >
-      <div class="text">`;
+    let todoCard = `<li id=${liId} class= "todo" >`;
       if(completed){
         todoCard=todoCard+'<input type="checkbox" checked>'
       }
       else{
         todoCard=todoCard+'<input type="checkbox">'
       }
-      todoCard=todoCard+ `<p>"${description}"</p>
-      </div>
+      todoCard=todoCard+ `<p>${description}</p>
       </li>
       <hr>`;
     list.insertAdjacentHTML('beforeend', todoCard);
@@ -40,4 +38,5 @@ function displayBooks() {
   section.innerHTML = '';
   section.appendChild(list);
 }
-displayBooks(); 
+
+displayBooks();
