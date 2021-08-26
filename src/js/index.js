@@ -1,8 +1,8 @@
 import '../css/style.css';
-import { updateLocalStorage, arrangeTodos } from './list.js';
+import list from './list.js';
 import getDragAfterElement from './drag.js';
 
-updateLocalStorage();
+const List = new list();
 
 // This first function ensures that the document has being already created
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   container.addEventListener('drop', (event) => {
     event.preventDefault();
-    arrangeTodos();
-    updateLocalStorage(true, true, false);
+    List.arrangeTodos();
+    List.updateLocalStorage(true, true, false);
     // reload the page to refresh the event EventListener
     document.location.reload();
   }, false);

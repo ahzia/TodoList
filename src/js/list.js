@@ -1,21 +1,26 @@
-let todos = [{
-  index: 2,
-  description: 'todo 4',
-  completed: true,
-},
-{
-  index: 0,
-  description: ' todo 1',
-  completed: false,
-},
-{
-  index: 1,
-  description: ' todo 3',
-  completed: true,
-},
-];
-const sortList = () => {
-  todos.sort((todoA, todoB) => {
+export default class todoList {
+  constructor() {
+    this.todos = [{
+      index: 2,
+      description: 'todo 4',
+      completed: true,
+    },
+    {
+      index: 0,
+      description: ' todo 1',
+      completed: false,
+    },
+    {
+      index: 1,
+      description: ' todo 3',
+      completed: true,
+    },
+    ];
+    this.updateLocalStorage();
+  }
+
+sortList = () => {
+  this.todos.sort((todoA, todoB) => {
     if (todoA.index < todoB.index) {
       return -1;
     }
@@ -25,11 +30,12 @@ const sortList = () => {
     return 0;
   });
 };
-const displayList = () => {
+
+displayList = () => {
   const section = document.getElementById('todos');
   const list = document.createElement('ul');
   list.id = 'list';
-  todos.forEach((todo) => {
+  this.todos.forEach((todo) => {
     const { description, completed, index } = todo;
     const liId = `li${index}`;
     const checkboxId = `ch${index}`;
@@ -51,45 +57,46 @@ const displayList = () => {
   section.innerHTML = '';
   section.appendChild(list);
   // eslint-disable-next-line no-use-before-define
-  addCheckboxChangeEventListeners(todos);
+  this.addCheckboxChangeEventListeners(this.todos);
 };
-const updateLocalStorage = (update, sort, display = true) => {
+
+updateLocalStorage = (update, sort, display = true) => {
   const listFromStorage = window.localStorage.getItem('todos');
   if (update) {
     // update local storage
     if (sort) {
-      sortList();
+      this.sortList();
     }
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    window.localStorage.setItem('todos', JSON.stringify(this.todos));
   } else if (listFromStorage != null) {
     // get data from local storage
-    todos = JSON.parse(window.localStorage.getItem('todos'));
+    this.todos = JSON.parse(window.localStorage.getItem('todos'));
   } else {
     // inialize local storage
-    sortList();
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+    this.sortList();
+    window.localStorage.setItem('todos', JSON.stringify(this.todos));
   }
   if (display) {
-    displayList();
+    this.displayList();
   }
 };
 
-const updateStatus = (todos, index) => {
-  todos[index].completed = !(todos[index].completed);
-  updateLocalStorage(true, false, false);
+updateStatus = (todos, index) => {
+  this.todos[index].completed = !(todos[index].completed);
+  this.updateLocalStorage(true, false, false);
 };
 
-const addCheckboxChangeEventListeners = (todos) => {
+addCheckboxChangeEventListeners = (todos) => {
   const checkboxes = document.querySelectorAll('input[type=checkbox][name=todoCheck]');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', (event) => {
       const index = (event.target.id).replace('ch', '');
-      updateStatus(todos, index);
+      this.updateStatus(todos, index);
     });
   });
 };
 
-const arrangeTodos = () => {
+arrangeTodos = () => {
   const container = document.getElementById('list');
   const children = container.childNodes;
   const childarray = [...children];
@@ -101,13 +108,12 @@ const arrangeTodos = () => {
     newIndex = (newIndex).replace('li', '');
     const todo = {
       index,
-      description: todos[newIndex].description,
-      completed: todos[newIndex].completed,
+      description: this.todos[newIndex].description,
+      completed: this.todos[newIndex].completed,
     };
     temp.push(todo);
     index += 1;
   });
-  todos = temp;
+  this.todos = temp;
 };
-
-export { updateLocalStorage, arrangeTodos };
+}

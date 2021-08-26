@@ -18,6 +18,16 @@ body {
   align-items: center;
 }
 
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
 .todoInput {
   border: none;
   width: 100%;
