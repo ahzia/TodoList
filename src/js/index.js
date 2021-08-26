@@ -1,8 +1,8 @@
 import '../css/style.css';
-import list from './list.js';
+import List from './list.js';
 import getDragAfterElement from './drag.js';
 
-const newList = new list();
+const newList = new List();
 const eventListener = () => {
   document.querySelector('ul').onclick = (event) => {
     const { target } = event;
