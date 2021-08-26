@@ -16,7 +16,7 @@ const todos = [{
   completed: true,
 },
 ];
-function sortBooks() {
+const sortBooks = () => {
   todos.sort((todoA, todoB) => {
     if (todoA.index < todoB.index) {
       return -1;
@@ -26,8 +26,8 @@ function sortBooks() {
     }
     return 0;
   });
-}
-function displayBooks() {
+};
+const displayBooks = () => {
   sortBooks();
   const section = document.getElementById('todos');
   const list = document.createElement('ul');
@@ -48,5 +48,5 @@ function displayBooks() {
   });
   section.innerHTML = '';
   section.appendChild(list);
-}
+};
 displayBooks();
