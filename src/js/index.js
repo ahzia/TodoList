@@ -49,4 +49,4 @@ function displayBooks() {
   section.innerHTML = '';
   section.appendChild(list);
 }
-displayBooks(); 
+displayBooks();

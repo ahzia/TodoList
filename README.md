@@ -10,13 +10,13 @@ This repository contain the codes for todo list project assigned by microverse
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://ahzia.github.io/TodoList/)
 
 
 ## Getting Started
 To get a local copy up and running follow these simple steps.
 1. Clone the project 
-  `$ git clone https://github.com/ahzia/Coworking-Space-Directory`
+  `$ git clone https://github.com/ahzia/TodoList`
 2. Install dependencies `$ npm install`
 3. If you want to build the project `$ npm run build` - this will build the project in /dist folder
 4. Start the Project `$ npm start` - serve the project in browser
