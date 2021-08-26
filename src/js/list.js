@@ -1,21 +1,6 @@
 export default class todoList {
   constructor() {
-    this.todos = [{
-      index: 2,
-      description: 'todo 4',
-      completed: true,
-    },
-    {
-      index: 0,
-      description: ' todo 1',
-      completed: false,
-    },
-    {
-      index: 1,
-      description: ' todo 3',
-      completed: true,
-    },
-    ];
+    this.todos = [];
     this.updateLocalStorage();
   }
 
