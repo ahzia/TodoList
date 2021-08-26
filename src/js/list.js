@@ -50,6 +50,7 @@ const displayList = () => {
   });
   section.innerHTML = '';
   section.appendChild(list);
+  // eslint-disable-next-line no-use-before-define
   addCheckboxChangeEventListeners(todos);
 };
 const updateLocalStorage = (update, sort, display = true) => {
