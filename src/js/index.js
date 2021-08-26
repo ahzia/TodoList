@@ -17,6 +17,7 @@ const todos=[{
 },
 ]
 function displayBooks() {
+  sortBooks();
   const section = document.getElementById('todos');
   const list = document.createElement('ul');
   list.id = 'list';
@@ -38,5 +39,15 @@ function displayBooks() {
   section.innerHTML = '';
   section.appendChild(list);
 }
-
+function sortBooks(){
+  todos.sort((todoA, todoB) => {
+    if (todoA.index < todoB.index) {
+      return -1;
+    }
+    if (todoA.index > todoB.index) {
+      return 1;
+    }
+    return 0;
+  });
+}
 displayBooks();
