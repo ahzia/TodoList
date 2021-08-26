@@ -15,6 +15,23 @@ addNew = (value) => {
   this.updateLocalStorage(true, true);
 }
 
+remove = (index) => {
+  this.todos.splice(index, 1);
+  const temp = [];
+  let counter = 0;
+  this.todos.forEach((item) => {
+    const todo = {
+      index: counter,
+      description: item.description,
+      completed: item.completed,
+    };
+    temp.push(todo);
+    counter += 1;
+  });
+  this.todos = temp;
+  this.updateLocalStorage(true, false);
+}
+
 sortList = () => {
   this.todos.sort((todoA, todoB) => {
     if (todoA.index < todoB.index) {
@@ -40,9 +57,9 @@ displayList = () => {
     const deleteDiv = `del${index}`;
     let todoCard = `<li id=${liId} class="todo draggable" draggable="true"><div class="todoContent">`;
     if (completed) {
-      todoCard += `<input type="checkbox" name="todoCheck" checked id="${checkboxId}">`;
+      todoCard += `<input type="checkbox" name="todoCheck" class="todoCheck" checked id="${checkboxId}">`;
     } else {
-      todoCard += `<input type="checkbox" name="todoCheck" id="${checkboxId}">`;
+      todoCard += `<input type="checkbox" name="todoCheck" class="todoCheck" id="${checkboxId}">`;
     }
     todoCard += `
       <input class="description" id="${inputId}" value="${description}">
@@ -50,16 +67,14 @@ displayList = () => {
       <div id="${moveDiv}" class="draggableAria">
         <i class="fas fa-ellipsis-v"></i>
       <div>
-      <div id="${deleteDiv}" class=" deleteDiv hidden">
-          <i class="fas fa-trash-alt"></i>
+      <div id="${deleteDiv}" class="deleteDiv hidden">
+        <i id="i${deleteDiv}" class="fas fa-trash-alt"></i>
       <div>
       </li>`;
     list.insertAdjacentHTML('beforeend', todoCard);
   });
   section.innerHTML = '';
   section.appendChild(list);
-  // eslint-disable-next-line no-use-before-define
-  this.addCheckboxChangeEventListeners(this.todos);
 };
 
 updateLocalStorage = (update, sort, display = true) => {
@@ -86,16 +101,6 @@ updateLocalStorage = (update, sort, display = true) => {
 updateStatus = (todos, index) => {
   this.todos[index].completed = !(todos[index].completed);
   this.updateLocalStorage(true, false, false);
-};
-
-addCheckboxChangeEventListeners = (todos) => {
-  const checkboxes = document.querySelectorAll('input[type=checkbox][name=todoCheck]');
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', (event) => {
-      const index = (event.target.id).replace('ch', '');
-      this.updateStatus(todos, index);
-    });
-  });
 };
 
 arrangeTodos = () => {

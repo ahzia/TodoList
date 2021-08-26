@@ -74,7 +74,7 @@ ul {
 .draggable.dragging {
   opacity: 0.5;
   border: 2px solid blue;
-  cursor:grabbing;
+  cursor: grabbing;
 }
 
 .draggableAria {
@@ -82,42 +82,48 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  cursor:grab;
+  cursor: grab;
 }
 
 .deleteDiv {
   display: flex;
-  width:20%;
+  width: 20px;
   align-items: center;
   justify-content: flex-end;
-  color:tomato;
+  color: tomato;
 }
+
 .deleteDiv:hover {
-  color:red;
-  cursor:pointer;
-
+  color: red;
+  cursor: pointer;
 }
 
-
-.description{
+.description {
   border: none;
   width: 100%;
   height: 30px;
 }
 
-.description:focus{
+.description:focus {
   outline: none;
-  background-color:lightblue;
 }
 
-.liFocus{
-  background-color:lightblue;
+.liFocus {
+  background-color: lightblue;
 }
 
-.hidden{
+.inFocus{
+  background-color: lightblue;
+}
+
+.hidden {
   visibility: hidden;
 }
 
-.visible{
+.hidetemp{
+  visibility: hidden;
+}
+
+.visible {
   visibility: visible;
 }
