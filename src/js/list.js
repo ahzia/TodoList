@@ -19,6 +19,17 @@ export default class todoList {
     this.updateLocalStorage();
   }
 
+addNew = (value) => {
+  const index = this.todos.length;
+  const newtodo = {
+    index,
+    description: value,
+    completed: false,
+  };
+  this.todos.push(newtodo);
+  this.updateLocalStorage(true, true);
+}
+
 sortList = () => {
   this.todos.sort((todoA, todoB) => {
     if (todoA.index < todoB.index) {

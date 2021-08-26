@@ -2,12 +2,13 @@ import '../css/style.css';
 import list from './list.js';
 import getDragAfterElement from './drag.js';
 
-const List = new list();
+const newList = new list();
 
 // This first function ensures that the document has being already created
 document.addEventListener('DOMContentLoaded', () => {
   const draggables = document.querySelectorAll('.draggable');
   const container = document.getElementById('list');
+  const addButton = document.getElementById('add');
 
   draggables.forEach((draggable) => {
     draggable.addEventListener('dragstart', () => {
@@ -31,9 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   container.addEventListener('drop', (event) => {
     event.preventDefault();
-    List.arrangeTodos();
-    List.updateLocalStorage(true, true, false);
+    newList.arrangeTodos();
+    newList.updateLocalStorage(true, true, false);
     // reload the page to refresh the event EventListener
     document.location.reload();
   }, false);
+  addButton.addEventListener('click', () => {
+    const text = document.getElementById('todoInput').value;
+    if (text !== '') {
+      newList.addNew(text);
+    }
+  });
 });
