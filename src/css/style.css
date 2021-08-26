@@ -1,52 +1,53 @@
-body{
+body {
   background-color: whitesmoke;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
-.container{
+.container {
   background-color: white;
-  width:40%; 
-  margin-top:150px;
-  padding:20px;
+  width: 40%;
+  margin-top: 150px;
+  padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.todoInput{
-  border:none;
-  width:100%;
-  height:30px;
+
+.todoInput {
+  border: none;
+  width: 100%;
+  height: 30px;
 }
 
-.todoInput:focus{
-  outline:none;
+.todoInput:focus {
+  outline: none;
 }
 
-ul{
-  padding:0px;
+ul {
+  padding: 0;
 }
 
-.todo{
+.todo {
   list-style: none;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 
-.clearAll{
-  background-color:whitesmoke;
-  height:70px;
-  margin:-20px;
+.clearAll {
+  background-color: whitesmoke;
+  height: 70px;
+  margin: -20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.clearAll a{
-    text-decoration: none;
-    color:black;
-} 
+.clearAll a {
+  text-decoration: none;
+  color: black;
+}
