@@ -9,13 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const draggables = document.querySelectorAll('.draggable');
   const container = document.getElementById('list');
   const addButton = document.getElementById('add');
-
+  const descriptionInput = document.querySelectorAll('.description');
   draggables.forEach((draggable) => {
     draggable.addEventListener('dragstart', () => {
       draggable.classList.add('dragging');
     });
     draggable.addEventListener('dragend', () => {
       draggable.classList.remove('dragging');
+    });
+  });
+  descriptionInput.forEach((input) => {
+    const inputId = (input.id).replace('in', '');
+    const liId = `li${inputId}`;
+    const moveDivId = `mv${inputId}`;
+    const deleteDivId = `del${inputId}`;
+    const inputContainer = document.getElementById(liId);
+    const moveDiv = document.getElementById(moveDivId);
+    const deleteDiv = document.getElementById(deleteDivId);
+    input.addEventListener('focus', () => {
+      inputContainer.classList.add('liFocus');
+      moveDiv.classList.add('hidden');
+      deleteDiv.classList.add('visible');
+    });
+    input.addEventListener('blur', () => {
+      inputContainer.classList.remove('liFocus');
+      moveDiv.classList.remove('hidden');
+      deleteDiv.classList.remove('visible');
     });
   });
   container.addEventListener('dragover', (e) => {

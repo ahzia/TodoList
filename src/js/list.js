@@ -35,6 +35,9 @@ displayList = () => {
     const { description, completed, index } = todo;
     const liId = `li${index}`;
     const checkboxId = `ch${index}`;
+    const inputId = `in${index}`;
+    const moveDiv = `mv${index}`;
+    const deleteDiv = `del${index}`;
     let todoCard = `<li id=${liId} class="todo draggable" draggable="true"><div class="todoContent">`;
     if (completed) {
       todoCard += `<input type="checkbox" name="todoCheck" checked id="${checkboxId}">`;
@@ -42,10 +45,13 @@ displayList = () => {
       todoCard += `<input type="checkbox" name="todoCheck" id="${checkboxId}">`;
     }
     todoCard += `
-      <p>${description}</p>
+      <input class="description" id="${inputId}" value="${description}">
       </div>
-      <div class="draggableAria">
+      <div id="${moveDiv}" class="draggableAria">
         <i class="fas fa-ellipsis-v"></i>
+      <div>
+      <div id="${deleteDiv}" class=" deleteDiv hidden">
+          <i class="fas fa-trash-alt"></i>
       <div>
       </li>`;
     list.insertAdjacentHTML('beforeend', todoCard);
@@ -100,8 +106,7 @@ arrangeTodos = () => {
   const temp = [];
   childarray.forEach((item) => {
     const { id } = item;
-    let newIndex = ((id).replace('li', '')).replace('li', '');
-    newIndex = (newIndex).replace('li', '');
+    const newIndex = ((id).replace('li', '')).replace('li', '');
     const todo = {
       index,
       description: this.todos[newIndex].description,

@@ -74,6 +74,7 @@ ul {
 .draggable.dragging {
   opacity: 0.5;
   border: 2px solid blue;
+  cursor:grabbing;
 }
 
 .draggableAria {
@@ -81,5 +82,42 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  cursor: move;
+  cursor:grab;
+}
+
+.deleteDiv {
+  display: flex;
+  width:20%;
+  align-items: center;
+  justify-content: flex-end;
+  color:tomato;
+}
+.deleteDiv:hover {
+  color:red;
+  cursor:pointer;
+
+}
+
+
+.description{
+  border: none;
+  width: 100%;
+  height: 30px;
+}
+
+.description:focus{
+  outline: none;
+  background-color:lightblue;
+}
+
+.liFocus{
+  background-color:lightblue;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
 }
