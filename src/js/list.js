@@ -103,8 +103,8 @@ updateLocalStorage = (update, sort, display = true) => {
   }
 };
 
-updateStatus = (todos, index) => {
-  this.todos[index].completed = !(todos[index].completed);
+updateStatus = (index) => {
+  this.todos[index].completed = !(this.todos[index].completed);
   this.updateLocalStorage(true, false, false);
 };
 
