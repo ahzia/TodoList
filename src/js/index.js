@@ -88,9 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
   eventListener();
   const addButton = document.getElementById('add');
   addButton.addEventListener('click', () => {
-    const text = document.getElementById('todoInput').value;
+    const input = document.getElementById('todoInput');
+    const text = input.value;
     if (text !== '') {
       newList.addNew(text);
+      input.value = '';
       eventListener();
     }
   });
