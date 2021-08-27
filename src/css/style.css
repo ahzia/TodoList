@@ -18,6 +18,16 @@ body {
   align-items: center;
 }
 
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
 .todoInput {
   border: none;
   width: 100%;
@@ -64,6 +74,7 @@ ul {
 .draggable.dragging {
   opacity: 0.5;
   border: 2px solid blue;
+  cursor: grabbing;
 }
 
 .draggableAria {
@@ -71,5 +82,48 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  cursor: move;
+  cursor: grab;
+}
+
+.deleteDiv {
+  display: flex;
+  width: 20px;
+  align-items: center;
+  justify-content: center;
+  color: tomato;
+}
+
+.deleteDiv:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.description {
+  border: none;
+  width: 100%;
+  height: 30px;
+}
+
+.description:focus {
+  outline: none;
+}
+
+.liFocus {
+  background-color: lightblue;
+}
+
+.inFocus {
+  background-color: lightblue;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.hidetemp {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
