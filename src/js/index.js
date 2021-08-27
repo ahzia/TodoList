@@ -96,4 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
       eventListener();
     }
   });
+  const clearAllButton = document.getElementById('clearAll');
+  clearAllButton.addEventListener('click', () => {
+    newList.clearAll();
+    eventListener();
+  });
 });
